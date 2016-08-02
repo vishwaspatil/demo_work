@@ -25,6 +25,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 4.2'
 
+#gem 'devise', '~> 3.4'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-instagram'
+gem 'twitter'
+gem 'instagram'
+gem 'omniauth-google-oauth2'
+#gem 'google-api-client', require: 'google/api_client'
+gem 'google-api-client', '~> 0.7.1' ,require: 'google/api_client'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

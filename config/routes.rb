@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
-      devise_for :users, controllers: {
-        sessions: 'users/sessions'
-      }
-   
+      # devise_for :users, controllers: {
+      #   sessions: 'users/sessions'
+      # }
+      #devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
-# Rails.application.routes.draw do
-#   devise_for :users
-#   get 'welcome/index'
+       get 'welcome/index'
+       root 'welcome#index'
 
-#  root to: 'welcome#index'
+       # devise_for :users, class_name: 'FormUser'
 
-#  devise_for :users, controllers: { sessions: 'users/sessions' }
+       devise_for :users, class_name: 'FormUser', :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
+
+        devise_scope :user do
+          get '/users/auth/:provider/upgrade' => 'users/omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
+          get '/users/auth/:provider/setup', :to => 'users/omniauth_callbacks#setup'
+        end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
